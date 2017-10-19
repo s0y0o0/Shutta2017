@@ -1,8 +1,8 @@
 class Round {
-    private static int _roundNum = 0; // 현재 라운드가 몇 번째 게임인지 나타내는 정적 변수
+    private static int _roundNum = 0; // _roundNum는 현재 라운드가 몇 번째 게임인지 나타내는 정적 변수.
 
     //region Winner _winner
-    private Winner _winner; // 이번 라운드에서 누가 이겼는지를 열거타입 변수에 저장한다.
+    private Winner _winner; // _winner는 이번 라운드에서 누가 이겼는지를 저장하는 열거타입 변수.
 
     Winner getWinner() {
         return _winner;
