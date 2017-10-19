@@ -6,10 +6,12 @@ public class CardPair {
         return _cardPair;
     }
 
+
+
     public void setCardPair(Card[] cardPair) {
         _cardPair = cardPair;
     }
-    //endregion
+
 }
 
 
