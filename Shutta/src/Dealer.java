@@ -3,6 +3,42 @@ import java.util.Random;
 
 public class Dealer {
 
+    // betting money
+    //region int _bettingMoney
+    private int _bettingMoney=200;
+    public int getBettingMoney() {
+        return _bettingMoney;
+    }
+    //endregion
+
+    // 각각의 플레이어의 소지금에서 배팅 금액 빼기
+    public void betMoney(Player p1 , Player p2, boolean tie){
+        judgeBettingMoney(tie);
+        p1.setMoney(p1.getMoney() - _bettingMoney /2);
+        p2.setMoney(p2.getMoney() - _bettingMoney /2);
+    }
+    // 전 판이 무승부인 경우
+    private void judgeBettingMoney(boolean tie){
+        if(tie)
+            _bettingMoney = _bettingMoney * 2;
+        else
+            _bettingMoney = 200;
+    }
+
+    // 3. 게임이 끝난 후 이긴 플레이어에게 배팅액 분배
+    public void attributeMoney(Player p1, Player p2, Winner winner){
+        if(winner == Winner.PlayerA)
+            p1.setMoney(p1.getMoney() + _bettingMoney);
+        else if (winner == Winner.PlayerB)
+            p2.setMoney(p2.getMoney() + _bettingMoney);
+        else{
+            p1.setMoney(p1.getMoney()+_bettingMoney/2);
+            p2.setMoney(p2.getMoney()+_bettingMoney/2);
+        }
+    }
+    //betting money
+
+
     private static Dealer instance = new Dealer();
 
     private Dealer() {

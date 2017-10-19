@@ -1,4 +1,5 @@
 public class Player {
+
     //region Card _card1
     private Card _card1;
 

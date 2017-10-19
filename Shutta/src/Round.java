@@ -21,8 +21,10 @@ public class Round {
 
     //endregion
     void printRound(Player p1, Player p2) {
-        System.out.println("Player A: " + p1.getPlayerCardInfo());
-        System.out.println("Player B: " + p2.getPlayerCardInfo());
+        System.out.println("************************* " + _roundNum + "번째 게임입니다 *************************");
+        System.out.println("배팅액 : " + Dealer.getInstance().getBettingMoney());
+        System.out.println("Player A: " + p1.getPlayerCardInfo() + " / 남은금액 : " + p1.getMoney() );
+        System.out.println("Player B: " + p2.getPlayerCardInfo() + " / 남은금액 : " + p2.getMoney() );
         System.out.println("Winner: " + _winner);
     }
 }

@@ -5,12 +5,11 @@ public class Main {
         Player p2 = new Player();
 
         boolean isTied = false;
-        BettingMoney bettingMoney = new BettingMoney();
 
         while(isRunning(p1, p2)) {
             Round round = new Round();
             //배팅액 받기
-            bettingMoney.betMoney(p1, p2, isTied);
+            Dealer.getInstance().betMoney(p1, p2, isTied);
             Dealer.getInstance().pickCards(p1, p2);
 
             if (isTied)
@@ -24,7 +23,7 @@ public class Main {
             round.setWinner(p1, p2);
 
             //배팅액분배
-            bettingMoney.attributeMoney(p1, p2, round.getWinner());
+            Dealer.getInstance().attributeMoney(p1, p2, round.getWinner());
 
             isTied = judgeTie(round);
             Game.getInstance().addGameRecord(round);

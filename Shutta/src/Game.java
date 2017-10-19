@@ -15,20 +15,23 @@ public class Game {
 
     public void printGameRecords()
     {
-        double[] statistics = getStatistics();
-        System.out.println("Player A: "+ statistics[0] + ", Player B: "+ statistics[1]);
+        int[] statistics = getStatistics();
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("Player A: "+ statistics[0] + "%, Player B: "+ statistics[1]+"%");
+        System.out.println("-------------------------------------------------------------------");
     }
 
-    private double[] getStatistics()
+    private int[] getStatistics()
     {
-        int scoreOfPlayerA = 0, scoreOfPlayerB = 0, total = _rounds.size();
+        int scoreOfPlayerA = 0, scoreOfPlayerB = 0;
+        double total = _rounds.size();
         for (Round round : _rounds) {
             if(round.getWinner() == Winner.PlayerA)
                 scoreOfPlayerA++;
             else if(round.getWinner() == Winner.PlayerB)
                 scoreOfPlayerB++;
         }
-        double[] statistics = {scoreOfPlayerA/total, scoreOfPlayerB/total};
+        int[] statistics = {(int)(scoreOfPlayerA/total*100), (int)(scoreOfPlayerB/total*100)};
         return statistics;
     }
 

@@ -1,25 +1,36 @@
 public class OriginalCardPair extends ScoreCalculator {
+    private Card _card1;
+    private Card _card2;
 
-    public int calculateScore(Player player){
-        int CardNumber1 = player.getCard1().getNum();
-        int CardNumber2 = player.getCard2().getNum();
-        boolean CardGwang1 = player.getCard1().getGwang();
-        boolean CardGwang2 = player.getCard2().getGwang();
+    public void calculateScore(Player player){
 
-        if(CardGwang1 == true && CardGwang2 == true){ // 광땡일때
+        _card1 = player.getCard1();
+        _card2 = player.getCard2();
+
+        if(isGwang()){ // 광땡일때
             player.setScore(21);
-        }else if(CardNumber1 == 10 && CardNumber2 == 10){ // 장땡일때
+        }else if(isJang()){ // 장땡일때
             player.setScore(20);
-        }else if(CardNumber1 == CardNumber2){ // 땡 일때
-
+        }else if(isDdeng()){ // 땡 일때
+            player.setScore(calculateDdeng(_card1.getNum()));
         }else{ //끗일때
-            player.setScore((CardNumber1+CardNumber2)%10);
+            player.setScore((_card1.getNum()+_card2.getNum())%10);
         }
-
-
-        int score = 0;
-        player.setScore(score);
-
-        return 0;
+    }
+    boolean isGwang(){
+        if(_card1.getGwang() == true && _card2.getGwang() == true)
+            return true;
+        else return false;
+    }
+    boolean isJang(){
+        if(_card1.getNum() == 10 && _card2.getNum() == 10) return true;
+        else return false;
+    }
+    boolean isDdeng(){
+        if(_card1.getNum() == _card2.getNum()) return true;
+        else return false;
+    }
+    int calculateDdeng(int cardNumber1){
+        return cardNumber1+9;
     }
 }
