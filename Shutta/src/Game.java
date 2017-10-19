@@ -22,7 +22,7 @@ class Game {
 
     private String getStringInfo()
     {
-        int[] scoresInfo = getScoresInfo();
+        int[] scoresInfo = getStatistics();
         int tiedStat = 100-scoresInfo[0]-scoresInfo[1];
         return " [ Winner: "+getFinalWinner()+" ] (total " + getRoundsSize()
                 + " games) Player A : "+ scoresInfo[0] + "%, Player B : "+ scoresInfo[1]
@@ -39,7 +39,7 @@ class Game {
         return _rounds.size();
     }
 
-    private int[] getScoresInfo()
+    private int[] getStatistics()
     {
         int[] scoresInfoArray = createScoresInfoArray();
         doStatistics(scoresInfoArray);
