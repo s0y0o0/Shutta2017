@@ -66,13 +66,18 @@ import java.util.Random;
 
     private Card[] getRandCards()
     {
-        int[] randNumbers = getRandNumbers();
         Card[] randCards = new Card[4];
-        for(int i=0; i<4; i++)
+        HashSet<Integer> setOfRandNumbers = new HashSet<>();
+        int i = 0;
+        while(setOfRandNumbers.size()<4)
         {
-            randCards[i] = convertIntToCard(randNumbers[i]);
+          int rand = _random.nextInt(20)+1;
+          setOfRandNumbers.add(rand);
+          if(i!=setOfRandNumbers.size())
+            randCards[i++] = convertIntToCard(rand);
         }
-        return  randCards;
+        setOfRandNumbers.clear();
+        return randCards;
     }
 
     private Card convertIntToCard(int randNumber) {
@@ -83,20 +88,5 @@ import java.util.Random;
         else
             card.setGwang(false);
         return card;
-    }
-
-    private int[] getRandNumbers()
-    {
-        int[] randNumbers = new int[4];
-        HashSet<Integer> setOfRandNumbers = new HashSet<>();
-        int i = 0;
-        while(setOfRandNumbers.size()<4)
-        {
-            int rand = _random.nextInt(20) + 1;
-            setOfRandNumbers.add(rand);
-            if(i != setOfRandNumbers.size())
-                randNumbers[i++] = rand;
-        }
-        return randNumbers;
     }
 }
