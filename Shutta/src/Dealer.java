@@ -1,3 +1,6 @@
 public class Dealer {
-    void pickCards(Player player1, Player player2) {}
+    void pickCards(Player p1, Player p2)
+    {
+
+    }
 }

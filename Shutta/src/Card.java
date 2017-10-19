@@ -1,4 +1,3 @@
-//
 public class Card {
     //region int _num
     private int _num;
