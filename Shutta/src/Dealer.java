@@ -61,7 +61,7 @@ import java.util.Random;
          player.setCard2(card2);    // 두 번째 카드를 플레이어의 _card2에 저장한다.
      }
 
-     private Card[] getRandCards()  // 카드 네 장을 랜덤하게 뽑아서 반환한다.
+     private Card[] getRandCards()  // 카드 네 장을 랜덤하게 뽑아서 카드 네 장을 저장하는 배열을 반환한다.
      {
          Card[] randCards = new Card[4];    // 카드 네 장을 저장하는 배열 randCards[]를 생성한다.
          saveRandCards(randCards);  // 카드 네 장을 랜덤하게 뽑아서 randCards[]에 저장한다.
