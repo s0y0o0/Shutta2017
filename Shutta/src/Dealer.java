@@ -30,11 +30,11 @@ public class Dealer {
 
     private Card[] getRandCards()
     {
-        HashSet<Integer> randNumbers = getRandNumbers();
+        int[] randNumbers = getRandNumbers();
         Card[] randCards = new Card[4];
-        int i = 0;
-        for (int item : randNumbers) {
-            randCards[i] = convertIntToCard(item);
+        for(int i=0; i<4; i++)
+        {
+            randCards[i] = convertIntToCard(randNumbers[i]);
         }
         return  randCards;
     }
@@ -49,18 +49,18 @@ public class Dealer {
         return card;
     }
 
-    private HashSet<Integer> getRandNumbers()
+    private int[] getRandNumbers()
     {
+        int[] randNumbers = new int[4];
         HashSet<Integer> setOfRandNumbers = new HashSet<>();
-        //int[] randNumbers = new int[4];
-        //int i = 0;
+        int i = 0;
         while(setOfRandNumbers.size()<4)
         {
             int rand = _random.nextInt(20) + 1;
             setOfRandNumbers.add(rand);
-            //if(i != setOfRandNumbers.size())
-            //    randNumbers[i++] = rand;
+            if(i != setOfRandNumbers.size())
+                randNumbers[i++] = rand;
         }
-        return  setOfRandNumbers;//randNumbers;
+        return randNumbers;
     }
 }
