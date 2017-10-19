@@ -1,15 +1,27 @@
 abstract public class CardPair {
-    private Card[] _cardPair;
+    //region Card _card1
+    private Card _card1;
 
-    public Card[] getCardPair() {
-        return _cardPair;
+    public Card getCard1() {
+        return _card1;
     }
 
-    public void setCardPair(Card[] cardPair) {
-        _cardPair = cardPair;
+    public void setCard1(Card card1) {
+        _card1 = card1;
+    }
+    //endregion
+
+    //region Card _card2
+    private Card _card2;
+
+    public Card getCard2() {
+        return _card2;
     }
 
-
+    public void setCard2(Card card2) {
+        _card2 = card2;
+    }
+    //endregion
 }
 
 

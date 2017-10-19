@@ -10,7 +10,6 @@ public class Card {
         _num = num;
     }
     //endregion
-
     //region boolean _gwang
     private boolean _gwang;
 
