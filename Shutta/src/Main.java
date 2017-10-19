@@ -15,7 +15,7 @@ public class Main {
             if (isTied)
                 Game.getInstance().setStrategy(new TieScoreCalculator());
             else
-                Game.getInstance().setStrategy(new OriginalCardPair());
+                Game.getInstance().setStrategy(new OriginalScoreCalculator());
 
             Game.getInstance().calculate(p1);
             Game.getInstance().calculate(p2);
@@ -35,19 +35,12 @@ public class Main {
     }
 
     // 전 판이 무승부인 경우
-    public static boolean judgeTie(Round round){
-        boolean isTied;
-        if(round.getWinner() == Winner.None)
-            isTied = true;
-        else
-            isTied = false;
-        return isTied;
+    private static boolean judgeTie(Round round){
+        return round.getWinner() == Winner.None;
     }
 
-    public static boolean isRunning(Player p1, Player p2){
-       if(p1.getMoney() <= 0 || p2.getMoney() <= 0)
-           return false;
-       return true;
+    private static boolean isRunning(Player p1, Player p2){
+       return p1.getMoney() > 0 && p2.getMoney() > 0;
     }
 
 }

@@ -18,17 +18,13 @@ public class TieScoreCalculator extends ScoreCalculator {
         }
     }
     private boolean isGwang(){
-        if(_card1.getGwang() == true && _card2.getGwang() == true)
-            return true;
-        else return false;
+        return _card1.getGwang() && _card2.getGwang();
     }
     private boolean isJang(){
-        if(_card1.getNum() == 10 && _card2.getNum() == 10) return true;
-        else return false;
+        return _card1.getNum() == 10 && _card2.getNum() == 10;
     }
     private boolean isDdeng(){
-        if(_card1.getNum() == _card2.getNum()) return true;
-        else return false;
+        return _card1.getNum() == _card2.getNum();
     }
     private int calculateDdeng(int cardNumber1){
         return cardNumber1+9;

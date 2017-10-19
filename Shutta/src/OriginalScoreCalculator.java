@@ -1,4 +1,4 @@
-public class OriginalCardPair extends ScoreCalculator {
+public class OriginalScoreCalculator extends ScoreCalculator {
     private Card _card1;
     private Card _card2;
 
@@ -17,20 +17,16 @@ public class OriginalCardPair extends ScoreCalculator {
             player.setScore((_card1.getNum()+_card2.getNum())%10);
         }
     }
-    boolean isGwang(){
-        if(_card1.getGwang() == true && _card2.getGwang() == true)
-            return true;
-        else return false;
+    private boolean isGwang(){
+        return _card1.getGwang() && _card2.getGwang();
     }
-    boolean isJang(){
-        if(_card1.getNum() == 10 && _card2.getNum() == 10) return true;
-        else return false;
+    private boolean isJang(){
+        return _card1.getNum() == 10 && _card2.getNum() == 10;
     }
-    boolean isDdeng(){
-        if(_card1.getNum() == _card2.getNum()) return true;
-        else return false;
+    private boolean isDdeng(){
+        return _card1.getNum() == _card2.getNum();
     }
-    int calculateDdeng(int cardNumber1){
+    private int calculateDdeng(int cardNumber1){
         return cardNumber1+9;
     }
 }
