@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-//
+
 public class Game {
 
     private static Game instance = new Game();
@@ -11,7 +11,7 @@ public class Game {
         return instance;
     }
 
-    private ArrayList<Round> _rounds;
+    private ArrayList<Round> _rounds = new ArrayList<>();
 
     public void printGameRecords()
     {
