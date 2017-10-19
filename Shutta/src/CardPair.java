@@ -1,9 +1,3 @@
-public class CardPair {
-
-    private Card card1;
-    private Card card2;
-}
-
 class Card {
     //region int _num
     private int _num;
@@ -28,4 +22,10 @@ class Card {
         _gwang = gwang;
     }
     //endregion
+}
+
+public class CardPair {
+
+    private Card card1;
+    private Card card2;
 }
