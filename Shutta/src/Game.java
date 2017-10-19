@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Game {
+class Game {
 
     private static Game instance = new Game();
 
@@ -13,16 +13,18 @@ public class Game {
 
     private ArrayList<Round> _rounds = new ArrayList<>();
 
-    public void printGameRecords()
+    void printGameRecords()
     {
         int[] statistics = getStatistics();
+        int tiedStat = 100-statistics[0]-statistics[1];
         System.out.println("-------------------------------------------------------------------");
-        System.out.println("Player A: "+ statistics[0] + "%, Player B: "+ statistics[1]+"%");
+        System.out.println("Player A : "+ statistics[0] + "%, Player B : "+ statistics[1]+"%, Tied : " + tiedStat+"%");
         System.out.println("-------------------------------------------------------------------");
     }
 
     private int[] getStatistics()
     {
+        int[] statistics = new int[2];
         int scoreOfPlayerA = 0, scoreOfPlayerB = 0;
         double total = _rounds.size();
         for (Round round : _rounds) {
@@ -31,11 +33,12 @@ public class Game {
             else if(round.getWinner() == Winner.PlayerB)
                 scoreOfPlayerB++;
         }
-        int[] statistics = {(int)(scoreOfPlayerA/total*100), (int)(scoreOfPlayerB/total*100)};
+        statistics[0] = (int)(scoreOfPlayerA/total*100);
+        statistics[1] = (int)(scoreOfPlayerB/total*100);
         return statistics;
     }
 
-    public void addGameRecord(Round round) {
+    void addGameRecord(Round round) {
         _rounds.add(round);
     }
 
