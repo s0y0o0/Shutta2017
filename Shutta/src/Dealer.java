@@ -2,10 +2,21 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class Dealer {
+
+
+    private static Dealer instance = new Dealer();
+
+    private Dealer() {
+    }
+
+    static Dealer getInstance() {
+        return instance;
+    }
+
     void pickCards(Player p1, Player p2)
     {
 
-        //p1.setCardPair();
+        p1.setCardPair();
         //p2.setCardPair();
     }
 

@@ -6,8 +6,9 @@ public class Player {
         return _cardPair;
     }
 
-    public void setCardPair(CardPair cardPair) {
-        _cardPair = cardPair;
+    public void setCardPair(Card[] cards) {
+        _cardPair.setCard1(cards[0]);
+        _cardPair.setCard2(cards[1]);
     }
     //endregion
 

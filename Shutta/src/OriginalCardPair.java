@@ -1,6 +1,6 @@
 public class OriginalCardPair extends CardPair {
 
-    public int calculatorScore(){
+    public int calculateScore(){
 
         return 0;
     }

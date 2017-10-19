@@ -1,6 +1,6 @@
 public class TieCardPair extends CardPair {
 
-    public int calculatorScore(){
+    public int calculateScore(){
 
         return 0;
     }
