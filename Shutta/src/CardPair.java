@@ -1,32 +1,31 @@
 public class CardPair {
 
-    Card card1;
-    Card card2;
+    private Card card1;
+    private Card card2;
+}
 
-    class Card {
-        //region int _num
-        private int _num;
+class Card {
+    //region int _num
+    private int _num;
 
-        public int getNum() {
-            return _num;
-        }
-
-        public void setNum(int num) {
-            _num = num;
-        }
-        //endregion
-
-        //region boolean _gwang
-        private boolean _gwang;
-
-        public boolean getGwang() {
-            return _gwang;
-        }
-
-        public void setGwang(boolean gwang) {
-            _gwang = gwang;
-        }
-        //endregion
-
+    public int getNum() {
+        return _num;
     }
+
+    public void setNum(int num) {
+        _num = num;
+    }
+    //endregion
+
+    //region boolean _gwang
+    private boolean _gwang;
+
+    public boolean getGwang() {
+        return _gwang;
+    }
+
+    public void setGwang(boolean gwang) {
+        _gwang = gwang;
+    }
+    //endregion
 }
