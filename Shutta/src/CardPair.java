@@ -1,17 +1,8 @@
 abstract public class CardPair {
-    static boolean tie = false;
-    private Card[] _cardPair;
+    private Card _card1;
+    private Card _card2;
 
-    public Card[] getCardPair() {
-        return _cardPair;
-    }
-    public void setCardPair(Card[] cardPair) {
-        _cardPair = cardPair;
-    }
-
-    public static void main(String[] args){
-
-    }
+    abstract public int calculatorScore();
 }
 
 
