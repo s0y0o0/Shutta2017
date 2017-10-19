@@ -11,8 +11,7 @@ public class OriginalCardPair extends ScoreCalculator {
         }else if(CardNumber1 == 10 && CardNumber2 == 10){ // 장땡일때
             player.setScore(20);
         }else if(CardNumber1 == CardNumber2){ // 땡 일때
-            
-            player.setScore();
+
         }else{ //끗일때
             player.setScore((CardNumber1+CardNumber2)%10);
         }
