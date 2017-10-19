@@ -20,5 +20,7 @@ public class Round {
     }
 
     //endregion
-    void printRoundRecord(){}
+    void printRoundRecord(){
+        System.out.println(_roundNum + "번째 판의 승자 : " + _winner);
+    }
 }
