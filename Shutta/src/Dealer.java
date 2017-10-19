@@ -64,16 +64,25 @@ import java.util.Random;
      private Card[] getRandCards()  // 카드 네 장을 랜덤하게 뽑아서 반환한다.
      {
          Card[] randCards = new Card[4];    // 카드 네 장을 저장하는 배열 randCards[]를 생성한다.
+         saveRandCards(randCards);  // 카드 네 장을 랜덤하게 뽑아서 randCards[]에 저장한다.
+         return randCards;  // randCards 를 반환한다.
+     }
+
+     private void saveRandCards(Card[] randCards)
+     {
          int i = 0; // 정수형 변수 i는 현재 randCards[]에 저장된 카드의 갯수를 나타낸다.
          while(setOfRandNumbers.size()<4)   // HashSet<>의 크기가 4개가 될 때까지 while 문을 반복한다.
          {
-             int rand = _random.nextInt(20)+1;  // 1~20까지 랜덤한 숫자를 하나 생성한다.
-             setOfRandNumbers.add(rand);    // 만약 중복이 없다면, 방금 생성한 숫자를 HashSet<>에 추가한다.
-             if(i!=setOfRandNumbers.size()) // 만약 숫자가 하나 추가되면,
+             int rand = getRandNumBetween1And20();  // 1~20까지 랜덤한 숫자를 하나 생성한다.
+             if(setOfRandNumbers.add(rand)) // 만약 중복이 없다면, 방금 생성한 숫자를 HashSet<>에 추가한다. 만약 숫자가 하나 추가되면,
                  randCards[i++] = convertIntToCard(rand);   // 새로 추가된 숫자를 카드로 변환하여 randCards[]에 저장한다.
          }
          setOfRandNumbers.clear();  // HashSet<> 개체에서 모든 요소를 제거하여 초기화한다.
-         return randCards;  // 카드 네 장을 저장하는 배열을 가리키는 변수를 반환한다.
+     }
+
+     private int getRandNumBetween1And20()
+     {
+         return _random.nextInt(20)+1;
      }
 
      private Card convertIntToCard(int randNumber) {    // 1~20까지의 숫자를 카드로 반환하는 함수이다.
