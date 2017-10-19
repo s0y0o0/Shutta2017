@@ -1,4 +1,4 @@
-public class CardPair {
+abstract public class CardPair {
     //region Card[] _cardPair
     private Card[] _cardPair;
 
