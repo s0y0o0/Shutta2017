@@ -55,7 +55,7 @@ import java.util.Random;
          setPlayerCards(p2, randCards[2], randCards[3]);    // 두 번째 플레이어에게 카드 두 장을 나누어준다.
      }
 
-     private void setPlayerCards(Player player, Card card1, Card card2) // 플레이어 내부에 카드 두 장을 저장하는 함수이다.
+     private void setPlayerCards(Player player, Card card1, Card card2) // 플레이어 내부에 카드 두 장을 저장하는 메소드이다.
      {
          player.setCard1(card1);    // 첫 번째 카드를 플레이어의 _card1에 저장한다.
          player.setCard2(card2);    // 두 번째 카드를 플레이어의 _card2에 저장한다.
@@ -85,14 +85,14 @@ import java.util.Random;
          return _random.nextInt(20)+1;
      }
 
-     private Card convertIntToCard(int randNumber) {    // 1~20까지의 숫자를 카드로 반환하는 함수이다.
+     private Card convertIntToCard(int randNumber) {    // 1~20까지의 숫자를 카드로 반환하는 메소드이다.
          Card card = new Card();                // 새로운 카드를 생성한다.
          card.setNum(getCardNum(randNumber));   // 카드에 번호를 저장한다.
          card.setGwang(isCardGwang(randNumber));    // 카드가 광인지 아닌지 여부를 저장한다.
          return card;                           // 카드를 반환한다.
      }
 
-     private int getCardNum(int number) // 1~20의 숫자를 인자로 받아서 1~10의 숫자로 반환하는 함수이다.
+     private int getCardNum(int number) // 1~20의 숫자를 인자로 받아서 1~10의 숫자로 반환하는 메소드이다.
      {
          return (number-1)%10+1;    // 1~10까지는 그대로, 11~20는 1~10으로 반환된다.
      }
