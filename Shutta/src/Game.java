@@ -17,9 +17,9 @@ class Game {
     {
         int[] statistics = getStatistics();
         int tiedStat = 100-statistics[0]-statistics[1];
-        System.out.println("-------------------------------------------------------------------");
-        System.out.println("[ Winner: "+getFinalWinner()+" ] Player A : "+ statistics[0] + "%, Player B : "+ statistics[1]+"%, Tied : " + tiedStat+"%");
-        System.out.println("-------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------");
+        System.out.println( "  [ Winner: "+getFinalWinner()+" ] (total " + getRoundCounts()+ " games) Player A : "+ statistics[0] + "%, Player B : "+ statistics[1]+"%, Tied : " + tiedStat+"%");
+        System.out.println("---------------------------------------------------------------------------------------");
     }
 
     private String getFinalWinner()
@@ -35,6 +35,12 @@ class Game {
                 return "None";
         }
     }
+
+    private int getRoundCounts()
+    {
+        return _rounds.size();
+    }
+
 
     private int[] getStatistics()
     {
