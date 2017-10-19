@@ -17,16 +17,16 @@ public class TieScoreCalculator extends ScoreCalculator {
             player.setScore((_card1.getNum()+_card2.getNum())%10);
         }
     }
-    private boolean isGwang(){
+    private boolean isGwang(){ // 광땡일 때 true return
         return _card1.getGwang() && _card2.getGwang();
     }
-    private boolean isJang(){
+    private boolean isJang(){ // 장땡일때 true return
         return _card1.getNum() == 10 && _card2.getNum() == 10;
     }
-    private boolean isDdeng(){
+    private boolean isDdeng(){ // 땡일때 true return
         return _card1.getNum() == _card2.getNum();
     }
-    private int calculateDdeng(int cardNumber1){
+    private int calculateDdeng(int cardNumber1){ //땡일 때 점수 계산
         return cardNumber1+9;
     }
 }

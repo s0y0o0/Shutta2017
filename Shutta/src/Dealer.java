@@ -25,7 +25,7 @@ public class Dealer {
             _bettingMoney = 200;
     }
 
-    // 3. 게임이 끝난 후 이긴 플레이어에게 배팅액 분배
+    //  게임이 끝난 후 이긴 플레이어에게 배팅액 분배
     public void attributeMoney(Player p1, Player p2, Winner winner){
         if(winner == Winner.PlayerA)
             p1.setMoney(p1.getMoney() + _bettingMoney);
