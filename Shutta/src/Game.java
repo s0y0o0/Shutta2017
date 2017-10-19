@@ -16,7 +16,7 @@ public class Game {
     public void printGameRecords()
     {
         double[] statistics = getStatistics();
-        System.out.println("Player A: "+ statistics[0] + "Player B"+ statistics[1]);
+        System.out.println("Player A: "+ statistics[0] + ", Player B: "+ statistics[1]);
     }
 
     private double[] getStatistics()
