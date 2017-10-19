@@ -1,18 +1,18 @@
 import java.util.HashSet;
 import java.util.Random;
 
-public class Dealer {
+ class Dealer {
 
     // betting money
     //region int _bettingMoney
     private int _bettingMoney=200;
-    public int getBettingMoney() {
+    int getBettingMoney() {
         return _bettingMoney;
     }
     //endregion
 
     // 각각의 플레이어의 소지금에서 배팅 금액 빼기
-    public void betMoney(Player p1 , Player p2, boolean tie){
+     void betMoney(Player p1 , Player p2, boolean tie){
         judgeBettingMoney(tie);
         p1.setMoney(p1.getMoney() - _bettingMoney /2);
         p2.setMoney(p2.getMoney() - _bettingMoney /2);
@@ -26,7 +26,7 @@ public class Dealer {
     }
 
     //  게임이 끝난 후 이긴 플레이어에게 배팅액 분배
-    public void attributeMoney(Player p1, Player p2, Winner winner){
+     void attributeMoney(Player p1, Player p2, Winner winner){
         if(winner == Winner.PlayerA)
             p1.setMoney(p1.getMoney() + _bettingMoney);
         else if (winner == Winner.PlayerB)
@@ -48,7 +48,7 @@ public class Dealer {
         return instance;
     }
 
-    public void pickCards(Player p1, Player p2)
+     void pickCards(Player p1, Player p2)
     {
         Card[] randCards = getRandCards();
 
