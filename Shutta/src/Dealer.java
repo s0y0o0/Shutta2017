@@ -16,8 +16,6 @@ public class Dealer {
     void pickCards(Player p1, Player p2)
     {
 
-        p1.setCardPair();
-        //p2.setCardPair();
     }
 
     private static Random _random = new Random();

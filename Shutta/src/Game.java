@@ -14,4 +14,20 @@ public class Game {
     private ArrayList<Round> _rounds;
 
     void printGameRecords(){}
+
+    public void addGameRecord(Round round) {
+        _rounds.add(round);
+    }
+
+    private ScoreCalculator _scoreCalculator;
+
+    void setStrategy(ScoreCalculator value)
+    {
+        _scoreCalculator = value;
+    }
+
+    void calculate(Player p)
+    {
+        _scoreCalculator.calculateScore(p);
+    }
 }

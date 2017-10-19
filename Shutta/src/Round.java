@@ -1,5 +1,5 @@
 public class Round {
-    private int _roundNum;
+    private static int _roundNum = 0;
 
     //region Winner _winner
     private Winner _winner;
@@ -8,15 +8,17 @@ public class Round {
         return _winner;
     }
 
-    public void setWinner(int score1, int score2) {
-        if (score1>score2)
+    public void setWinner(Player p1, Player p2) {
+        if (p1.getScore()>p2.getScore())
             _winner = Winner.PlayerA;
-        else if (score1<score2)
+        else if (p1.getScore()<p2.getScore())
             _winner = Winner.PlayerB;
         else
             _winner = Winner.None;
+        _roundNum ++;
+
     }
 
     //endregion
-    void printRecord(){}
+    void printRoundRecord(){}
 }

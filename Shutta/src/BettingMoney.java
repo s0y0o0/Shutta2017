@@ -1,24 +1,28 @@
 public class BettingMoney {
 
-    int money = 100; //배팅액 초기값
-    int playAMoney  ; //플레이어 A의 소지 금액
-    int playBMoney ; //플레이어 B의 소지 금액
-    boolean tie = false; //전 판이 무승부였는지
+    int money = 200; //배팅액 초기값
 
     // 1. 각각의 플레이어의 소지금에서 배팅 금액 빼기
-    private void subtractionMoney(){
-
+    public void betMoney(Player p1 , Player p2, boolean tie){
+        judgeBettingMoney(tie);
+        p1.setMoney(p1.getMoney() - money/2);
+        p2.setMoney(p2.getMoney() - money/2);
     }
-
     // 2. 전 판이 무승부인 경우
-    private int judgeTie(){
-        if(tie==true) money = money * 2;
-
-        return money;
+    private void judgeBettingMoney(boolean tie){
+        if(tie)
+            money = money * 2;
+        else
+            money = 200;
     }
 
     // 3. 게임이 끝난 후 이긴 플레이어에게 배팅액 분배
-    private void attributeMoney(){
-
+    public void attributeMoney(Player p1, Player p2, Winner winner){
+        if(winner == Winner.PlayerA) {
+            p1.setMoney(p1.getMoney() + money);
+        }
+        else if (winner == Winner.PlayerB){
+            p2.setMoney(p2.getMoney() + money);
+        }
     }
 }

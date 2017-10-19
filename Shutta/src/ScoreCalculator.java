@@ -1,4 +1,4 @@
-abstract public class CardPair {
+abstract public class ScoreCalculator {
     //region Card _card1
     private Card _card1;
 
@@ -23,9 +23,7 @@ abstract public class CardPair {
     }
     //endregion
 
-    abstract public int calculateScore();
+    abstract public int calculateScore(Player player);
 
 
 }
-
-
