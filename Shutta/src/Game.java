@@ -11,7 +11,7 @@ public class Game {
         return instance;
     }
 
-    private ArrayList<Round> _rounds;
+    private ArrayList<Round> _rounds = new ArrayList<>();
 
     void printGameRecords(){}
 
