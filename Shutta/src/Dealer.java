@@ -49,7 +49,7 @@ import java.util.Random;
 
      void pickCards(Player p1, Player p2)   // 딜러가 플레이어 두 명에게 각각 카드를 두 장씩 나누어준다.
      {
-         Card[] randCards = getRandCards(); // getRandCards() 함수를 사용하여 카드 네 장을 저장하는 배열 randCards 형성한다.
+         Card[] randCards = getRandCards(); // getRandCards() 함수를 사용하여 카드 네 장을 저장하는 배열 randCards 생성한다.
 
          setPlayerCards(p1, randCards[0], randCards[1]);    // 첫 번째 플레이어에게 카드 두 장을 나누어준다.
          setPlayerCards(p2, randCards[2], randCards[3]);    // 두 번째 플레이어에게 카드 두 장을 나누어준다.
