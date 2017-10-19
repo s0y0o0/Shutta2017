@@ -13,7 +13,24 @@ public class Game {
 
     private ArrayList<Round> _rounds = new ArrayList<>();
 
-    void printGameRecords(){}
+    public void printGameRecords()
+    {
+        double[] statistics = getStatistics();
+        System.out.println("Player A: "+ statistics[0] + "Player B"+ statistics[1]);
+    }
+
+    private double[] getStatistics()
+    {
+        int scoreOfPlayerA = 0, scoreOfPlayerB = 0, total = _rounds.size();
+        for (Round round : _rounds) {
+            if(round.getWinner() == Winner.PlayerA)
+                scoreOfPlayerA++;
+            else if(round.getWinner() == Winner.PlayerB)
+                scoreOfPlayerB++;
+        }
+        double[] statistics = {scoreOfPlayerA/total, scoreOfPlayerB/total};
+        return statistics;
+    }
 
     public void addGameRecord(Round round) {
         _rounds.add(round);
