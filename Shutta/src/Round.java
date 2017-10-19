@@ -20,5 +20,9 @@ public class Round {
     }
 
     //endregion
-    void printRoundRecord(){}
+    void printRound(Player p1, Player p2) {
+        System.out.println("Player A: " + p1.getPlayerCardInfo());
+        System.out.println("Player B: " + p2.getPlayerCardInfo());
+        System.out.println("Winner: " + _winner);
+    }
 }

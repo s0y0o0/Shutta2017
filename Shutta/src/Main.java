@@ -29,7 +29,7 @@ public class Main {
             isTied = judgeTie(round);
             Game.getInstance().addGameRecord(round);
 
-            round.printRoundRecord();
+            round.printRound(p1, p2);
         }
 
         Game.getInstance().printGameRecords();

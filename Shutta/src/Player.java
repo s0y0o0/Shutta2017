@@ -48,4 +48,10 @@ public class Player {
     }
     //endregion
 
+    public String getPlayerCardInfo()
+    {
+        return _card1.getCardInfo()+ " / " + _card2.getCardInfo();
+    }
+
+
 }

@@ -21,4 +21,12 @@ public class Card {
         _gwang = gwang;
     }
     //endregion
+
+    public String getCardInfo()
+    {
+        String cardInfo = "Card: No. "+_num;
+        if(_gwang == true)
+            cardInfo = cardInfo + " (Gwang) ";
+        return cardInfo;
+    }
 }
