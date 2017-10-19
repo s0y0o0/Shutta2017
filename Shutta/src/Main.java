@@ -31,7 +31,7 @@ public class Main {
             round.printRound(p1, p2); //해당 round 결과 출력
         }
 
-        Game.getInstance().printGameRecords(); //한명이 파산할 때 까지의 축적된 결과를 출력
+        Game.getInstance().printGameRecord(); //한명이 파산할 때 까지의 축적된 결과를 출력
     }
 
     // 전 판이 무승부인 경우

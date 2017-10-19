@@ -23,8 +23,8 @@ class Round {
     void printRound(Player p1, Player p2) {
         System.out.println("************************* " + _roundNum + "번째 게임입니다 *************************");
         System.out.println("배팅액 : " + Dealer.getInstance().getBettingMoney());  // 이번 라운드에 배팅한 금액의 총액을 출력한다.
-        System.out.println("Player A: " + playerInfo(p1));  // 이번 라운드에서 Player A가 받은 두 카드와 남은 금액 정보를 출력한다.
-        System.out.println("Player B: " + playerInfo(p2));  // 이번 라운드에서 Player B가 받은 두 카드와 남은 금액 정보를 출력한다.
+        System.out.println("Player A: " + playerInfo(p1));  // 이번 라운드에서 Player A가 받은 두 카드와 라운드 진행 후 남은 금액을 출력한다.
+        System.out.println("Player B: " + playerInfo(p2));  // 이번 라운드에서 Player B가 받은 두 카드와 라운드 진행 후 남은 금액을 출력한다.
         System.out.println("Winner: " + _winner);   // 이번 라운드의 승자를 출력한다.(PlayerA, PlayerB, 또는 None(무승부))
     }
 

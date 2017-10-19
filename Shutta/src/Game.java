@@ -2,60 +2,75 @@ import java.util.ArrayList;
 
 class Game {
 
+    // region class Game declared as a Singleton
     private static Game instance = new Game();
-
     private Game() {
     }
-
     static Game getInstance() {
         return instance;
     }
+    // endregion
 
-    private ArrayList<Round> _rounds = new ArrayList<>();
+    private ArrayList<Round> _rounds = new ArrayList<>();   // 각 라운드의 정보를 저장하는 ArrayList<>를 하나 생성한다.
 
-    void printGameRecords()
+    void printGameRecord()
     {
-        int[] statistics = getStatistics();
-        int tiedStat = 100-statistics[0]-statistics[1];
-        System.out.println("---------------------------------------------------------------------------------------");
-        System.out.println( "  [ Winner: "+getFinalWinner()+" ] (total " + getRoundCounts()+ " games) Player A : "+ statistics[0] + "%, Player B : "+ statistics[1]+"%, Tied : " + tiedStat+"%");
-        System.out.println("---------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------");
+        System.out.println(getStringInfo());
+        System.out.println("--------------------------------------------------------------------------------------");
     }
 
-    private String getFinalWinner()
+    private String getStringInfo()
     {
-        Winner winner = _rounds.get(_rounds.size()-1).getWinner();
-        switch (winner)
-        {
-            case PlayerA:
-                return "Player A";
-            case PlayerB:
-                return "Player B";
-            default:
-                return "None";
-        }
+        int[] scoresInfo = getScoresInfo();
+        int tiedStat = 100-scoresInfo[0]-scoresInfo[1];
+        return " [ Winner: "+getFinalWinner()+" ] (total " + getRoundsSize()
+                + " games) Player A : "+ scoresInfo[0] + "%, Player B : "+ scoresInfo[1]
+                +"%, Tied : " + tiedStat+"%";
     }
 
-    private int getRoundCounts()
+    private Winner getFinalWinner()
+    {
+        return _rounds.get(_rounds.size()-1).getWinner();
+    }
+
+    private int getRoundsSize()
     {
         return _rounds.size();
     }
 
-
-    private int[] getStatistics()
+    private int[] getScoresInfo()
     {
-        int[] statistics = new int[2];
-        int scoreOfPlayerA = 0, scoreOfPlayerB = 0;
-        double total = _rounds.size();
+        int[] scoresInfoArray = createScoresInfoArray();
+        doStatistics(scoresInfoArray);
+        return scoresInfoArray;
+    }
+
+    private int[] createScoresInfoArray() {
+        int[] scoresInfo = new int[]{0,0};
         for (Round round : _rounds) {
-            if(round.getWinner() == Winner.PlayerA)
-                scoreOfPlayerA++;
-            else if(round.getWinner() == Winner.PlayerB)
-                scoreOfPlayerB++;
+            if(isWinnerA(round))
+                scoresInfo[0]++;
+            else if(isWinnerB(round))
+                scoresInfo[1]++;
         }
-        statistics[0] = (int)(scoreOfPlayerA/total*100);
-        statistics[1] = (int)(scoreOfPlayerB/total*100);
-        return statistics;
+        return scoresInfo;
+    }
+
+    private boolean isWinnerA(Round round)
+    {
+        return round.getWinner() == Winner.PlayerA;
+    }
+
+    private boolean isWinnerB(Round round)
+    {
+        return round.getWinner() == Winner.PlayerB;
+    }
+
+    private void doStatistics(int[] statistics) {
+        double total = getRoundsSize();
+        statistics[0] = (int)(statistics[0]/total*100);
+        statistics[1] = (int)(statistics[1]/total*100);
     }
 
     void addGameRecord(Round round) {
