@@ -1,4 +1,4 @@
-abstract public class ScoreCalculator {
+interface ScoreCalculator {
 
-    abstract public void calculateScore(Player player);
+    void calculateScore(Player player);
 }
