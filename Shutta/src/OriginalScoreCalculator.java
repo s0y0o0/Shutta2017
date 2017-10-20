@@ -1,4 +1,4 @@
-public class OriginalIScoreCalculator implements IScoreCalculator {
+public class OriginalScoreCalculator implements IScoreCalculator {
     private Card _card1;
     private Card _card2;
 

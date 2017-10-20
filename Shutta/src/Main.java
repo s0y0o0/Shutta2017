@@ -14,9 +14,9 @@ public class Main {
             Dealer.getInstance().pickCards(p1, p2);
 
             if (isTied) //전판이 무승부인지
-                Game.getInstance().setStrategy(new TieIScoreCalculator()); //무승부인경우
+                Game.getInstance().setStrategy(new TieScoreCalculator()); //무승부인경우
             else
-                Game.getInstance().setStrategy(new OriginalIScoreCalculator());//기본 점수계산
+                Game.getInstance().setStrategy(new OriginalScoreCalculator());//기본 점수계산
 
             Game.getInstance().calculate(p1); //playA의 점수 계산
             Game.getInstance().calculate(p2); //playB의 점수 계산
