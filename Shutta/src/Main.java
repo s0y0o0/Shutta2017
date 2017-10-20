@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         Player p1 = new Player(); //플레이어1 생성
-        Player p2 = new Player(); //플레이어1 생성
+        Player p2 = new Player(); //플레이어2 생성
 
         boolean isTied = false; //게임시작 전 무승부 여부의 초기값 설정
 
