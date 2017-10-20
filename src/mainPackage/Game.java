@@ -47,8 +47,8 @@ class Game {
     {
         int[] statistics = doStatistics(); // scoresInfo 배열에 각 플레이어의 승률을 퍼센트로 저장한다.
         int tiedStat = 100-statistics[0]-statistics[1]; // 전체 게임 중에서 무승부였던 확률을 퍼센트로 저장한다.
-        return " [ mainPackage.Winner: "+getFinalWinner()+" ] (total " + getRoundsSize()                // 정보를 담고 있는 문자열 반환한다.
-                + " games) playerPackage A : "+ statistics[0] + "%, playerPackage B : "+ statistics[1]
+        return " [ Winner: "+getFinalWinner()+" ] (total " + getRoundsSize()                // 정보를 담고 있는 문자열 반환한다.
+                + " games) player A : "+ statistics[0] + "%, player B : "+ statistics[1]
                 +"%, Tied : " + tiedStat+"%";
     }
 
