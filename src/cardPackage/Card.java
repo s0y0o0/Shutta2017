@@ -2,6 +2,10 @@ package cardPackage;
 
 public class Card {
 
+    Card() {    // Card 생성자, 같은 패키지에 있는 Deck에서만 Card를 생성할 수 있도록 접근 제한자는 default로 한다.
+
+    }
+
     //region int _num
     private int _num;   // 카드의 번호를 저장.
     public int getNum() {
