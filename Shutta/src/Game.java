@@ -18,16 +18,16 @@ class Game {
     }   // ROUND 변수를 인자로 받아서 ArrayList<>에 저장하는 메소드이다.
 
     // 게임의 점수 계산 방법을 두 가지 방법으로 구현하기 위해 Strategy 디자인 패턴을 사용하였다.
-    private ScoreCalculator _scoreCalculator;
+    private IScoreCalculator _IScoreCalculator;
 
-    void setStrategy(ScoreCalculator value)
+    void setStrategy(IScoreCalculator value)
     {
-        _scoreCalculator = value;
+        _IScoreCalculator = value;
     }
 
     void calculate(Player p)
     {
-        _scoreCalculator.calculateScore(p);
+        _IScoreCalculator.calculateScore(p);
     }
 
 

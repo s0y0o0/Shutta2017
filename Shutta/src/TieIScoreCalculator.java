@@ -1,4 +1,4 @@
-public class TieScoreCalculator implements ScoreCalculator {
+public class TieIScoreCalculator implements IScoreCalculator {
     private Card _card1;
     private Card _card2;
 

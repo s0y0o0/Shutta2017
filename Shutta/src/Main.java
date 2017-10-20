@@ -1,10 +1,11 @@
 public class Main {
     public static void main(String[] args) {
 
-        Player p1 = new Player();
-        Player p2 = new Player();
+        Player p1 = new Player(); //플레이어1 생성
+        Player p2 = new Player(); //플레이어1 생성
 
-        boolean isTied = false;
+        boolean isTied = false; //게임시작 전 무승부 여부의 초기값 설정
+
 
         while(isRunning(p1, p2)) {
             Round round = new Round();
@@ -13,9 +14,9 @@ public class Main {
             Dealer.getInstance().pickCards(p1, p2);
 
             if (isTied) //전판이 무승부인지
-                Game.getInstance().setStrategy(new TieScoreCalculator()); //무승부인경우
+                Game.getInstance().setStrategy(new TieIScoreCalculator()); //무승부인경우
             else
-                Game.getInstance().setStrategy(new OriginalScoreCalculator());//기본 점수계산
+                Game.getInstance().setStrategy(new OriginalIScoreCalculator());//기본 점수계산
 
             Game.getInstance().calculate(p1); //playA의 점수 계산
             Game.getInstance().calculate(p2); //playB의 점수 계산
@@ -41,6 +42,6 @@ public class Main {
     //파산자가 있는지 판별
     private static boolean isRunning(Player p1, Player p2){
        return p1.getMoney() > 0 && p2.getMoney() > 0;
-    }
+}
 
 }

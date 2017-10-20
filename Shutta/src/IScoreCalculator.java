@@ -1,4 +1,4 @@
-interface ScoreCalculator {
+interface IScoreCalculator {
 
     void calculateScore(Player player);
 }
