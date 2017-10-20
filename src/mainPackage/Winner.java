@@ -1,6 +1,6 @@
 package mainPackage;
 
-public enum Winner {
+enum Winner {
     PlayerA,
     PlayerB,
     None
