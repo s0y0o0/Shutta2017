@@ -39,7 +39,7 @@ class Player{
     }
     //endregion
 
-    String getPlayerCardInfo() // 플레이어의 카드 정보를 String으로 반환하는 메소드.
+    String getPlayerCardInfo() // 플레이어의 카드 정보를 문자열로 반환하는 메소드.
     {
         return _card1.getCardInfo()+ " / " + _card2.getCardInfo();
     }
