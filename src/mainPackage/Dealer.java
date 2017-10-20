@@ -1,3 +1,5 @@
+package mainPackage;
+
 import cardPackage.Card;
 import cardPackage.Deck;
 import playerPackage.Player;
@@ -7,7 +9,7 @@ import java.util.Random;
 
 class Dealer {
 
-    // region class Dealer declared as a Singleton
+    // region class mainPackage.Dealer declared as a Singleton
     private static Dealer instance = new Dealer();
     private Dealer() {}
     static Dealer getInstance() {

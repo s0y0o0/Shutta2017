@@ -1,3 +1,5 @@
+package mainPackage;
+
 import playerPackage.Player;
 import scoreCalculatorPackage.IScoreCalculator;
 
@@ -5,7 +7,7 @@ import java.util.ArrayList;
 
 class Game {
 
-    // region class Game declared as a Singleton
+    // region class mainPackage.Game declared as a Singleton
     private static Game instance = new Game();
     private Game() {
     }
@@ -45,7 +47,7 @@ class Game {
     {
         int[] statistics = doStatistics(); // scoresInfo 배열에 각 플레이어의 승률을 퍼센트로 저장한다.
         int tiedStat = 100-statistics[0]-statistics[1]; // 전체 게임 중에서 무승부였던 확률을 퍼센트로 저장한다.
-        return " [ Winner: "+getFinalWinner()+" ] (total " + getRoundsSize()                // 정보를 담고 있는 문자열 반환한다.
+        return " [ mainPackage.Winner: "+getFinalWinner()+" ] (total " + getRoundsSize()                // 정보를 담고 있는 문자열 반환한다.
                 + " games) playerPackage A : "+ statistics[0] + "%, playerPackage B : "+ statistics[1]
                 +"%, Tied : " + tiedStat+"%";
     }

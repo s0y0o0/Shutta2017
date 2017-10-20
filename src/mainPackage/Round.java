@@ -1,9 +1,11 @@
+package mainPackage;
+
 import playerPackage.Player;
 
 class Round {
     private static int _roundNum = 0; // _roundNum는 현재 라운드가 몇 번째 게임인지 나타내는 정적 변수.
 
-    //region Winner _winner
+    //region mainPackage.Winner _winner
     private Winner _winner; // _winner 변수는 이번 라운드에서 누가 이겼는지를 열거타입으로 저장한다.
 
     Winner getWinner() {
@@ -27,7 +29,7 @@ class Round {
         System.out.println("배팅액 : " + Dealer.getInstance().getBettingMoney());  // 이번 라운드에 배팅한 금액의 총액을 출력한다.
         System.out.println("playerPackage A: " + playerInfo(p1));  // 이번 라운드에서 playerPackage A가 받은 두 카드와 라운드 진행 후 남은 금액을 출력한다.
         System.out.println("playerPackage B: " + playerInfo(p2));  // 이번 라운드에서 playerPackage B가 받은 두 카드와 라운드 진행 후 남은 금액을 출력한다.
-        System.out.println("Winner: " + _winner);   // 이번 라운드의 승자를 출력한다.(PlayerA, PlayerB, 또는 None(무승부))
+        System.out.println("mainPackage.Winner: " + _winner);   // 이번 라운드의 승자를 출력한다.(PlayerA, PlayerB, 또는 None(무승부))
     }
 
     private String playerInfo(Player player)

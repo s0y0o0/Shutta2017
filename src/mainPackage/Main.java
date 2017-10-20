@@ -1,3 +1,5 @@
+package mainPackage;
+
 import playerPackage.Player;
 import scoreCalculatorPackage.OriginalScoreCalculator;
 import scoreCalculatorPackage.TieScoreCalculator;
@@ -30,7 +32,7 @@ public class Main {
             Dealer.getInstance().attributeMoney(p1, p2, round.getWinner());
 
             isTied = judgeTie(round); // 해당 게임이 무승부인지 판별
-            Game.getInstance().addGameRecord(round); // Game 클레스에 현재 round 결과 저장
+            Game.getInstance().addGameRecord(round); // mainPackage.Game 클레스에 현재 round 결과 저장
 
             round.printRound(p1, p2); //해당 round 결과 출력
         }
