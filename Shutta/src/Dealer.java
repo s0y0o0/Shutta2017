@@ -61,7 +61,7 @@ import java.util.Random;
          player.setCard2(card2);    // 두 번째 카드를 플레이어의 _card2에 저장한다.
      }
 
-     private Card[] getRandCards()  // 카드 네 장을 랜덤하게 뽑아서 카드 네 장을 저장하는 배열을 반환한다.
+     private Card[] getRandCards()  // 카드 네 장을 랜덤하게 뽑아서 카드 네 장을 저장한 배열을 반환한다.
      {
          Card[] randCards = new Card[4];    // 카드 네 장을 저장하는 배열 randCards[]를 생성한다.
          saveRandCards(randCards);  // 카드 네 장을 랜덤하게 뽑아서 randCards[]에 저장한다.
@@ -73,32 +73,16 @@ import java.util.Random;
          int i = 0; // 정수형 변수 i는 현재 randCards[]에 저장된 카드의 갯수를 나타낸다.
          while(setOfRandNumbers.size()<4)   // HashSet<>의 크기가 4개가 될 때까지 while 문을 반복한다.
          {
-             int rand = getRandNumBetween1And20();  // 1~20까지 랜덤한 숫자를 하나 생성한다.
+             int rand = getRandNumBetween0And19();  // 0~19까지 랜덤한 숫자를 하나 생성한다.
              if(setOfRandNumbers.add(rand)) // 만약 중복이 없다면, 방금 생성한 숫자를 HashSet<>에 추가한다. 만약 숫자가 하나 추가되면,
-                 randCards[i++] = convertIntToCard(rand);   // 새로 추가된 숫자를 카드로 변환하여 randCards[]에 저장한다.
+                 randCards[i++] = Deck.getInstance().getCardFromDeck(rand);   // 새로 추가된 숫자에 해당하는 카드를 덱에서 가져와 randCards[]에 저장한다.
          }
          setOfRandNumbers.clear();  // HashSet<> 개체에서 모든 요소를 제거하여 초기화한다.
      }
 
-     private int getRandNumBetween1And20()
+     private int getRandNumBetween0And19()
      {
-         return _random.nextInt(20)+1;
+         return _random.nextInt(20);
      }
 
-     private Card convertIntToCard(int randNumber) {    // 1~20까지의 숫자를 카드로 반환하는 메소드이다.
-         Card card = new Card();                // 새로운 카드를 생성한다.
-         card.setNum(getCardNum(randNumber));   // 카드에 번호를 저장한다.
-         card.setGwang(isCardGwang(randNumber));    // 카드가 광인지 아닌지 여부를 저장한다.
-         return card;                           // 카드를 반환한다.
-     }
-
-     private int getCardNum(int number) // 1~20의 숫자를 인자로 받아서 1~10의 숫자로 반환하는 메소드이다.
-     {
-         return (number-1)%10+1;    // 1~10까지는 그대로, 11~20는 1~10으로 반환된다.
-     }
-
-     private boolean isCardGwang(int number)    // 1~20의 숫자를 인자로 받아서 해당 카드가 광인지 아닌지 여부를 반환한다.
-     {
-         return number == 1 || number == 3 || number == 8;  // 랜덤으로 생성된 숫자가 1, 3, 8 중에 하나이면 참을 반환한다.
-     }
  }

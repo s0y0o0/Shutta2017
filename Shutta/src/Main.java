@@ -6,7 +6,6 @@ public class Main {
 
         boolean isTied = false; //게임시작 전 무승부 여부의 초기값 설정
 
-
         while(isRunning(p1, p2)) {
             Round round = new Round();
             //배팅액 받기
