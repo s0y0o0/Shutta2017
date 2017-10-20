@@ -2,7 +2,7 @@ package cardPackage;
 
 public class Card {
 
-    Card() {    // Card 생성자, 같은 패키지에 있는 Deck에서만 Card를 생성할 수 있도록 접근 제한자는 default로 한다.
+    Card() {    // 같은 패키지에 있는 클래스 Deck에서만 Card를 생성할 수 있도록 접근 제한자는 default로 한다.
 
     }
 
