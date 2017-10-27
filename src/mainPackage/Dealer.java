@@ -6,6 +6,7 @@ import playerPackage.Player;
 
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 class Dealer {
 
@@ -18,7 +19,7 @@ class Dealer {
     //endregion
 
     private static Random _random = new Random();  // 랜덤으로 숫자를 뽑을 때 사용할 랜덤 변수를 생성한다.
-    private HashSet<Integer> setOfRandNumbers = new HashSet<>();   // 숫자 1~20을 중복되지 않게 뽑기 위해 HashSet<>을 생성한다.
+    private Set<Integer> setOfRandNumbers = new HashSet<>();   // 숫자 1~20을 중복되지 않게 뽑기 위해 HashSet<>을 생성한다.
 
     //region int _bettingMoney
     private int _bettingMoney=200;
@@ -30,8 +31,8 @@ class Dealer {
     // 각각의 플레이어의 소지금에서 배팅 금액 빼기
     void betMoney(Player p1 , Player p2, boolean tie){
         judgeBettingMoney(tie);
-        p1.setMoney(p1.getMoney() - _bettingMoney /2);
-        p2.setMoney(p2.getMoney() - _bettingMoney /2);
+        p1.setMoney(p1.getMoney() - _bettingMoney / 2);
+        p2.setMoney(p2.getMoney() - _bettingMoney / 2);
     }
     // 전 판이 무승부인 경우
     private void judgeBettingMoney(boolean tie){

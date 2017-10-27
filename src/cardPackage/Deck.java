@@ -1,13 +1,14 @@
 package cardPackage;
 
+import java.util.stream.IntStream;
+
 public class Deck {
 
     private static Deck instance = new Deck();
 
     private Deck() {
         _deck = new Card[20];
-        for (int index=0; index<20 ;index++)
-            _deck[index] = convertIntToCard(index);
+        IntStream.range(0, 20).forEachOrdered(index -> _deck[index] = convertIntToCard(index));
     }
 
     public static Deck getInstance() {

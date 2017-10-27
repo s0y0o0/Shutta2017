@@ -4,6 +4,7 @@ import playerPackage.Player;
 import scoreCalculatorPackage.IScoreCalculator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 class Game {
 
@@ -16,7 +17,7 @@ class Game {
     }
     // endregion
 
-    private ArrayList<Round> _rounds = new ArrayList<>();   // 각 라운드의 정보를 저장하는 ArrayList<>를 하나 생성한다.
+    private List<Round> _rounds = new ArrayList<>();   // 각 라운드의 정보를 저장하는 ArrayList<>를 하나 생성한다.
 
     void addGameRecord(Round round) {
         _rounds.add(round);
@@ -71,12 +72,17 @@ class Game {
 
     private int[] createScoresInfoArray() {
         int[] scoresInfo = new int[]{0,0};  // 모든 원소를 0으로 초기화한 int 배열을 하나 생성한다.
-        for (Round round : _rounds) {   // 모든 라운드 정보를 순회하면서
-            if(isWinnerA(round))    // 만약 해당 라운드에서 플레이어 A가 승리했다면
+        // 모든 라운드 정보를 순회하면서
+// 만약 해당 라운드에서 플레이어 A가 승리했다면
+// 배열의 첫 번째 원소에 1을 더한다.
+// 만약 해당 라운드에서 플레이어 B가 승리했다면
+// 배열의 두 번째 원소에 1을 더한다.
+        _rounds.forEach(round -> {
+            if (isWinnerA(round))    // 만약 해당 라운드에서 플레이어 A가 승리했다면
                 scoresInfo[0]++;    // 배열의 첫 번째 원소에 1을 더한다.
-            else if(isWinnerB(round))   // 만약 해당 라운드에서 플레이어 B가 승리했다면
+            else if (isWinnerB(round))   // 만약 해당 라운드에서 플레이어 B가 승리했다면
                 scoresInfo[1]++;    // 배열의 두 번째 원소에 1을 더한다.
-        }
+        });
         return scoresInfo;  // 각 플레이어의 승리 횟수를 저장한 배열을 반환한다.
     }
 
